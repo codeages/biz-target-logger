@@ -1,0 +1,18 @@
+{
+    "name": "codeages/biz-target-log",
+    "description": "Target Logger.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": { 
+            "Codeages\\Biz\\TargetLog\\": "src/",
+            "Codeages\\Biz\\TargetLog\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "codeages/biz-framework": "dev-master"
+    },
+    "config" : {
+        "bin-dir" : "bin"
+    }
+}
