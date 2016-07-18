@@ -1,9 +1,9 @@
 <?php
-namespace Codeages\Biz\TargetLog;
+namespace Codeages\Biz\Targetlog;
 
 use Codeages\Biz\Framework\Context\Kernel;
 
-class TargetLogKernel extends Kernel
+class TargetlogKernel extends Kernel
 {
     public function getNamespace()
     {
@@ -13,7 +13,7 @@ class TargetLogKernel extends Kernel
     public function registerProviders()
     {
         return array(
-            new TargetLogServiceProvider(),
+            new TargetlogServiceProvider(),
         );
     }
 }

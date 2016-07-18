@@ -1,8 +1,8 @@
 <?php
 
-namespace Codeages\Biz\TargetLog\Service;
+namespace Codeages\Biz\Targetlog\Service;
 
-interface TargetLogService
+interface TargetlogService
 {
     public function log($level, $targetType, $targetId, $message, array $context = array());
 

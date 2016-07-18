@@ -1,17 +1,17 @@
 <?php
 
-namespace Codeages\Biz\TargetLog;
+namespace Codeages\Biz\Targetlog;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Codeages\Biz\Framework\Context\MigrationProviderInterface;
 use Codeages\Biz\Framework\Context\Kernel;
 
-class TargetLogServiceProvider implements ServiceProviderInterface, MigrationProviderInterface
+class TargetlogServiceProvider implements ServiceProviderInterface, MigrationProviderInterface
 {
     public function register(Container $container)
     {
-
+        // $container['biz.targetlog.targetlog_service']
     }
 
     public function registerMigrationDirectory(Kernel $contaier)

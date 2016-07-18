@@ -1,9 +1,9 @@
 <?php
-namespace Codeages\Biz\TargetLog;
+namespace Codeages\Biz\Targetlog;
 
 use Psr\Log\LoggerInterface;
 
-class TargetLogger implements LoggerInterface
+class Targetlogger implements LoggerInterface
 {
     protected $targetType;
 
@@ -57,11 +57,11 @@ class TargetLogger implements LoggerInterface
 
     public function log($level, $message, array $context = array())
     {
-        return $this->getTargetLogService()->log($level, $this->targetType, $this->targetId, $message, $context);
+        return $this->getTargetlogService()->log($level, $this->targetType, $this->targetId, $message, $context);
     }
 
-    protected function getTargetLogService()
+    protected function getTargetlogService()
     {
-        return ServiceKernel::instance()->service('TargetLogService');
+        return ServiceKernel::instance()->service('TargetlogService');
     }
 }

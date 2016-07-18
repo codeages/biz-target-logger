@@ -1,11 +1,11 @@
 <?php
 
-namespace Codeages\Biz\TargetLog\Dao\Impl;
+namespace Codeages\Biz\Targetlog\Dao\Impl;
 
-use Codeages\Biz\TargetLog\Dao\TargetLogDao;
+use Codeages\Biz\Targetlog\Dao\TargetlogDao;
 use Codeages\Biz\Framework\Dao\GeneralDaoImpl;
 
-class TargetLogDaoImpl extends GeneralDaoImpl implements TargetLogDao
+class TargetlogDaoImpl extends GeneralDaoImpl implements TargetlogDao
 {
     protected $table = 'target_log';
 

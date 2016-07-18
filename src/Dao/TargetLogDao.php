@@ -1,8 +1,8 @@
 <?php
 
-namespace Codeages\Biz\TargetLog\Dao;
+namespace Codeages\Biz\Targetlog\Dao;
 
-interface TargetLogDao
+interface TargetlogDao
 {
 
 }

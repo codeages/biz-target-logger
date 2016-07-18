@@ -1,10 +1,10 @@
 <?php
 
-namespace Codeages\Biz\TargetLog\Service\Impl;
+namespace Codeages\Biz\Targetlog\Service\Impl;
 
-use Codeages\Biz\TargetLog\Service\TargetLogService;
+use Codeages\Biz\Targetlog\Service\TargetlogService;
 
-class TargetLogService implements TargetLogService
+class TargetlogService implements TargetlogService
 {
     public function log($level, $targetType, $targetId, $message, array $context = array())
     {
@@ -39,6 +39,6 @@ class TargetLogService implements TargetLogService
 
     protected function getLogDao()
     {
-        return $this->kernel()->dao('TargetLogDao');
+        return $this->kernel()->dao('TargetlogDao');
     }
 }

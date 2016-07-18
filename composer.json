@@ -1,12 +1,12 @@
 {
-    "name": "codeages/biz-target-log",
+    "name": "codeages/biz-targetlog",
     "description": "Target Logger.",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": { 
-            "Codeages\\Biz\\TargetLog\\": "src/",
-            "Codeages\\Biz\\TargetLog\\Tests\\": "tests/"
+            "Codeages\\Biz\\Targetlog\\": "src/",
+            "Codeages\\Biz\\Targetlog\\Tests\\": "tests/"
         }
     },
     "require": {
