@@ -4,7 +4,7 @@ namespace Codeages\Biz\Targetlog\Service\Impl;
 use Codeages\Biz\Framework\Service\KernelAwareBaseService;
 use Codeages\Biz\Targetlog\Service\TargetlogService;
 
-class TargetlogService extends KernelAwareBaseService implements TargetlogService
+class TargetlogServiceImpl extends KernelAwareBaseService implements TargetlogService
 {
     public function log($level, $targetType, $targetId, $message, array $context = array())
     {
@@ -22,9 +22,8 @@ class TargetlogService extends KernelAwareBaseService implements TargetlogServic
 
         $log['userId'] = 0;
         $log['createdIp'] = '';
-        $log['createdTime'] = time();
 
-        return $this->getLogDao()->addLog($log);
+        return $this->getLogDao()->create($log);
     }
 
     public function getLog($id)
@@ -37,7 +36,7 @@ class TargetlogService extends KernelAwareBaseService implements TargetlogServic
         return $this->getLogDao()->searchLogs($conditions, $orderBy, $start, $limit);
     }
 
-    public function searchLogCount($conditions)
+    public function countLogs($conditions)
     {
         return $this->getLogDao()->searchLogCount($conditions);
     }

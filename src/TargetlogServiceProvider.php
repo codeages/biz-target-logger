@@ -13,12 +13,12 @@ class TargetlogServiceProvider implements ServiceProviderInterface, MigrationPro
 {
     public function register(Container $container)
     {
-        $container['targetlog.targetlog_dao'] = $container->dao(function() {
-            return new TargetlogDaoImpl();
+        $container['targetlog.targetlog_dao'] = $container->dao(function($container) {
+            return new TargetlogDaoImpl($container);
         });
 
-        $container['targetlog.targetlog_service'] = function() {
-            return new TargetlogServiceImpl();
+        $container['targetlog.targetlog_service'] = function($container) {
+            return new TargetlogServiceImpl($container);
         };
     }
 

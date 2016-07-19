@@ -12,7 +12,7 @@ class TargetLog extends Migration
         $container = $this->getContainer();
 
         $table = new Doctrine\DBAL\Schema\Table('target_log');
-        $table->addColumn('id', 'integer', array('unsigned' => true));
+        $table->addColumn('id', 'integer', array('unsigned' => true, 'autoincrement'=> true));
         $table->addColumn('targetType', 'string', array('length'=>64, 'default'=>'', 'null' => false, 'comment' => '日志对象类型'));
         $table->addColumn('targetId', 'integer' , array('default' => 0, 'null' => false, 'comment' => '日志对象ID'));
         $table->addColumn('act', 'string', array('length' => 64, 'default' => '', 'null' => false, 'comment' => '日志行为'));
