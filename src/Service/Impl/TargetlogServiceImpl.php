@@ -9,19 +9,19 @@ class TargetlogServiceImpl extends KernelAwareBaseService implements TargetlogSe
     public function log($level, $targetType, $targetId, $message, array $context = array())
     {
         $log = array();
-        if (!empty($context['act'])) {
-            $log['act'] = $context['act'];
-            unset($context['act']);
+        if (!empty($context['action'])) {
+            $log['action'] = $context['action'];
+            unset($context['action']);
         }
 
         $log['level'] = $level;
-        $log['targetType'] = $targetType;
-        $log['targetId'] = $targetId;
+        $log['target_type'] = $targetType;
+        $log['target_id'] = $targetId;
         $log['message'] = $message;
         $log['context'] = empty($context) ? array() : $context;
 
-        $log['userId'] = 0;
-        $log['createdIp'] = '';
+        $log['ip'] = '';
+        $log['user_id'] = 0;
 
         return $this->getLogDao()->create($log);
     }
