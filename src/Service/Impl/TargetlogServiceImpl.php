@@ -9,19 +9,20 @@ class TargetlogServiceImpl extends KernelAwareBaseService implements TargetlogSe
     public function log($level, $targetType, $targetId, $message, array $context = array())
     {
         $log = array();
-        if (!empty($context['action'])) {
-            $log['action'] = $context['action'];
-            unset($context['action']);
-        }
 
         $log['level'] = $level;
         $log['target_type'] = $targetType;
         $log['target_id'] = $targetId;
         $log['message'] = $message;
-        $log['context'] = empty($context) ? array() : $context;
+        $log['action'] = isset($context['action']) ? $context['action'] : '';
+        $log['user_id'] = isset($context['user_id']) ? $context['user_id'] : 0;
+        $log['ip'] = isset($context['ip']) ? $context['ip'] : '';
 
-        $log['ip'] = '';
-        $log['user_id'] = 0;
+        unset($context['action']);
+        unset($context['user_id']);
+        unset($context['ip']);
+
+        $log['context'] = empty($context) ? array() : $context;
 
         return $this->getLogDao()->create($log);
     }
@@ -33,12 +34,12 @@ class TargetlogServiceImpl extends KernelAwareBaseService implements TargetlogSe
 
     public function searchLogs($conditions, $orderBy, $start, $limit)
     {
-        return $this->getLogDao()->searchLogs($conditions, $orderBy, $start, $limit);
+        return $this->getLogDao()->search($conditions, $orderBy, $start, $limit);
     }
 
     public function countLogs($conditions)
     {
-        return $this->getLogDao()->searchLogCount($conditions);
+        return $this->getLogDao()->count($conditions);
     }
 
     protected function getLogDao()

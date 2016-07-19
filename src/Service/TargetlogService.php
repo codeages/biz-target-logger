@@ -5,7 +5,7 @@ namespace Codeages\Biz\Targetlog\Service;
 interface TargetlogService
 {
     const DEBUG = 1;
-    const INTO = 2;
+    const INFO = 2;
     const NOTICE = 3;
     const WARNING = 4;
     const ERROR = 5;
