@@ -4,23 +4,10 @@ define('ROOT_DIR', dirname(__DIR__));
 
 require_once ROOT_DIR . '/vendor/autoload.php';
 
-use Phpmig\Api\PhpmigApplication;
-use Symfony\Component\Console\Output\NullOutput;
-use Codeages\Biz\Framework\Dao\MigrationBootstrap;
-use Codeages\Biz\TargetLog\TargetLogKernel;
+use Codeages\Biz\Framework\UnitTests\UnitTestsBootstrap;
+use Codeages\Biz\Targetlog\TargetlogKernel;
 
-$kernel = new TargetLogKernel(array());
-$kernel->boot();
+$kernel = new TargetlogKernel(array());
 
-$bootstrap = new MigrationBootstrap($kernel, __DIR__);
-$container = $bootstrap->run();
-
-
-$adapter = $container['phpmig.adapter'];
-if (!$adapter->hasSchema()) {
-    $adapter->createSchema();
-}
-
-$app = new PhpmigApplication($container, new NullOutput());
-
-$app->up();
+$bootstrap = new UnitTestsBootstrap($kernel);
+$bootstrap->boot();

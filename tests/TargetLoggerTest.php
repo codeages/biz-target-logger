@@ -1,11 +1,13 @@
 <?php
-
 namespace Codeages\Biz\TargetLog\Tests;
 
-class TargetLoggerTest extends \PHPUnit_Framework_TestCase
+use Codeages\Biz\Framework\UnitTests\BaseTestCase;
+
+class TargetLoggerTest extends BaseTestCase
 {
     public function testInfo()
     {
+        $this->assertTrue(true);
         
     }
 

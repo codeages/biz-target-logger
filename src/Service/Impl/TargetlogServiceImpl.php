@@ -1,10 +1,10 @@
 <?php
-
 namespace Codeages\Biz\Targetlog\Service\Impl;
 
+use Codeages\Biz\Framework\Service\KernelAwareBaseService;
 use Codeages\Biz\Targetlog\Service\TargetlogService;
 
-class TargetlogService implements TargetlogService
+class TargetlogService extends KernelAwareBaseService implements TargetlogService
 {
     public function log($level, $targetType, $targetId, $message, array $context = array())
     {
@@ -27,6 +27,11 @@ class TargetlogService implements TargetlogService
         return $this->getLogDao()->addLog($log);
     }
 
+    public function getLog($id)
+    {
+        return $this->getLogDao()->get($id);
+    }
+
     public function searchLogs($conditions, $orderBy, $start, $limit)
     {
         return $this->getLogDao()->searchLogs($conditions, $orderBy, $start, $limit);
@@ -39,6 +44,6 @@ class TargetlogService implements TargetlogService
 
     protected function getLogDao()
     {
-        return $this->kernel()->dao('TargetlogDao');
+        return $this->kernel['targetlog.targetlog_dao'];
     }
 }
