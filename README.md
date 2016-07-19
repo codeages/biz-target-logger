@@ -16,4 +16,4 @@ $context = array('user_id' => 1, 'action' => 'some_action', 'ip' => '127.0.0.1')
 $logger->debug('something happen', $context);
 ```
 
-其中$context为可选参数，$context中的各个key也是可选。如果$context中的key传入了`user_id`, 'action', 'ip'则会当做字段记录，可被检索。
+其中$context为可选参数，$context中的各个key也是可选。如果$context中的key传入了`user_id`, `action`, `ip`则会当做字段记录，可被检索。
