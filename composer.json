@@ -10,7 +10,7 @@
         }
     },
     "require": {
-        "codeages/biz-framework": "dev-master"
+        "codeages/biz-framework": "^0.0.3"
     },
     "config" : {
         "bin-dir" : "bin"
