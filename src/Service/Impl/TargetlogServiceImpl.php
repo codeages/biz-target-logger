@@ -1,10 +1,10 @@
 <?php
 namespace Codeages\Biz\Targetlog\Service\Impl;
 
-use Codeages\Biz\Framework\Service\KernelAwareBaseService;
+use Codeages\Biz\Framework\Service\BaseService;
 use Codeages\Biz\Targetlog\Service\TargetlogService;
 
-class TargetlogServiceImpl extends KernelAwareBaseService implements TargetlogService
+class TargetlogServiceImpl extends BaseService implements TargetlogService
 {
     public function log($level, $targetType, $targetId, $message, array $context = array())
     {
@@ -44,6 +44,6 @@ class TargetlogServiceImpl extends KernelAwareBaseService implements TargetlogSe
 
     protected function getLogDao()
     {
-        return $this->kernel['targetlog.targetlog_dao'];
+        return $this->biz->dao('Targetlog:TargetlogDao');
     }
 }

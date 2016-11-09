@@ -6,13 +6,13 @@ use Codeages\Biz\Targetlog\Service\TargetlogService;
 
 class Targetlogger implements LoggerInterface
 {
-    protected $container;
+    protected $biz;
     protected $targetType;
     protected $targetId;
 
-    public function __construct($container, $targetType, $targetId)
+    public function __construct($biz, $targetType, $targetId)
     {
-        $this->container = $container;
+        $this->biz = $biz;
         $this->targetType = $targetType;
         $this->targetId = $targetId;
     }
@@ -64,6 +64,6 @@ class Targetlogger implements LoggerInterface
 
     protected function getTargetlogService()
     {
-        return $this->container['targetlog.targetlog_service'];
+        return $this->biz->service('Targetlog:TargetlogService');
     }
 }

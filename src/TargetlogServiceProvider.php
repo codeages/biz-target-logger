@@ -9,21 +9,11 @@ use Codeages\Biz\Framework\Context\Kernel;
 use Codeages\Biz\Targetlog\Dao\Impl\TargetlogDaoImpl;
 use Codeages\Biz\Targetlog\Service\Impl\TargetlogServiceImpl;
 
-class TargetlogServiceProvider implements ServiceProviderInterface, MigrationProviderInterface
+class TargetlogServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
-        $container['targetlog.targetlog_dao'] = $container->dao(function($container) {
-            return new TargetlogDaoImpl($container);
-        });
-
-        $container['targetlog.targetlog_service'] = function($container) {
-            return new TargetlogServiceImpl($container);
-        };
-    }
-
-    public function registerMigrationDirectory(Kernel $contaier)
-    {
-        $contaier->put('migration_directories', dirname(__DIR__) . '/database');
+        $container['migration.directories'][] = dirname(__DIR__) . '/migrations';
+        $container['autoload.aliases']['Targetlog'] = 'Codeages\Biz\Targetlog';
     }
 }

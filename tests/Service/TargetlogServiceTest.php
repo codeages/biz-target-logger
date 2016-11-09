@@ -23,6 +23,6 @@ class TargetlogServiceTest extends BaseTestCase
 
     protected function getTargetlogService()
     {
-        return self::$kernel['targetlog.targetlog_service'];
+        return self::$biz->service('Targetlog:TargetlogService');
     }
 }

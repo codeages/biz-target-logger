@@ -14,11 +14,11 @@ class TargetloggerTestCase extends BaseTestCase
 
     protected function createLogger($targetType, $targetId)
     {
-        return new Targetlogger(self::$kernel, $targetType, $targetId);
+        return new Targetlogger(self::$biz, $targetType, $targetId);
     }
 
     protected function getTargetlogService()
     {
-        return self::$kernel['targetlog.targetlog_service'];
+        return self::$biz->service['Targetlog:TargetlogService'];
     }
 }
