@@ -11,7 +11,7 @@ branches:
   - develop
 
 env:
-  - SYMFONY_VERSION="~2.8.12" DB=mysql
+  - DB=mysql
 
 install:
   - composer install

@@ -8,8 +8,8 @@ define('ROOT_DIR', dirname(__DIR__));
 
 require_once ROOT_DIR . '/vendor/autoload.php';
 
-$config = [
-    'db.options' => [
+$config = array(
+    'db.options' => array(
         'dbname' => getenv('DB_NAME') ? : 'biz-target-test',
         'user' => getenv('DB_USER') ? : 'root',
         'password' => getenv('DB_PASSWORD') ? : '',
@@ -17,8 +17,8 @@ $config = [
         'port' => getenv('DB_PORT') ? : 3306,
         'driver' => 'pdo_mysql',
         'charset' => 'utf8',
-    ],
-];
+    ),
+);
 
 $biz = new Biz($config);
 $biz->register(new DoctrineServiceProvider());
