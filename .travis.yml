@@ -1,0 +1,27 @@
+language: php
+
+php:
+  - '5.3'
+  - '5.5'
+  - '7.0'
+  - '7.1'
+
+branches:
+  - master
+  - develop
+
+env:
+  - SYMFONY_VERSION="~2.8.12" DB=mysql
+
+install:
+  - composer install
+
+before_script:
+  - mysql -e 'CREATE DATABASE `biz-target-test` DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci'
+
+script:
+  - phpunit
+
+cache:
+  directories:
+    - $HOME/.composer/cache

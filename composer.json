@@ -4,13 +4,13 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
-        "psr-4": { 
+        "psr-4": {
             "Codeages\\Biz\\Targetlog\\": "src/",
             "Codeages\\Biz\\Targetlog\\Tests\\": "tests/"
         }
     },
     "require": {
-        "codeages/biz-framework": "^0.1.6"
+        "codeages/biz-framework": "^0.2.0"
     },
     "config" : {
         "bin-dir" : "bin"

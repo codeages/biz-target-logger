@@ -8,7 +8,19 @@ define('ROOT_DIR', dirname(__DIR__));
 
 require_once ROOT_DIR . '/vendor/autoload.php';
 
-$biz = new Biz(include ROOT_DIR.'/config/biz_test.php');
+$config = [
+    'db.options' => [
+        'dbname' => getenv('DB_NAME') ? : 'biz-target-test',
+        'user' => getenv('DB_USER') ? : 'root',
+        'password' => getenv('DB_PASSWORD') ? : '',
+        'host' => getenv('DB_HOST') ? : '127.0.0.1',
+        'port' => getenv('DB_PORT') ? : 3306,
+        'driver' => 'pdo_mysql',
+        'charset' => 'utf8',
+    ],
+];
+
+$biz = new Biz($config);
 $biz->register(new DoctrineServiceProvider());
 $biz->register(new TargetlogServiceProvider());
 $biz->boot();
