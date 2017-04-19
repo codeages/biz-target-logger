@@ -1,5 +1,7 @@
 # Targetlog
 
+** 此项目已合并入Biz Framework **，请移步至： https://github.com/codeages/biz-framework 。
+
 [![Build Status](https://travis-ci.org/codeages/biz-targetlog.svg?branch=master)](https://travis-ci.org/codeages/biz-targetlog)
 
 一个日志类，用于针对某个对象记录日志的类，日志存储到数据库，便于查询检索。
